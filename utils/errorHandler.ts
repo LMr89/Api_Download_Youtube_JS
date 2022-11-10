@@ -1,8 +1,9 @@
 
 import {  Response } from "express";
 
-const errorHandler = (res:Response, error:string) => {
-    res.sendStatus(500);
+const errorHandler = (res:Response, error:string, errorRaw?:any) => {
+    console.log(errorRaw)
+    res.status(500);
     res.send({error})
 }
 
