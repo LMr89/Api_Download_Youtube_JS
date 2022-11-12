@@ -14,7 +14,7 @@ const getVideoDetails = async ({body}: Request, res: Response) => {
 
         let response =  await proccessResponse(body.url);
         res.status(200);
-        res.send({data:response});
+        res.send({youtubeApiResponse:response});
 
     } catch (error) {
         errorHandler(res, "BAD_REQUEST",error);

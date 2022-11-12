@@ -6,6 +6,6 @@ export default interface YtbResponse {
     qualityLabel:string,
     aproxDuration:string | undefined,
     urlDownload:string,
-    thumbnail:string
+    
 
 }
