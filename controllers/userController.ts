@@ -6,9 +6,15 @@ import { errorHandler } from "../utils/errorHandler";
 
 const registerUser = async ({body}: Request, res: Response) => {
     try {
-        console.log(body)
+        
         const newUser = await registerUserService(body);
-        res.send({data:"Registrado con exito"})
+
+        if (newUser !== null ) {
+            res.send({data:"Registrado con exito"});
+            return;
+        }
+
+        res.send({data:"Usuario ya registrado"});
         
     } catch (error) {
         errorHandler(res,"DATA_INVALID", error);
