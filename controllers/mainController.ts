@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import { proccessResponse, verifiyValidURL } from "../service/youtubeService";
 import { errorHandler } from "../utils/errorHandler";
 
-const getVideoDetails = async ({body}: Request, res: Response) => {
+const getVideoDetails = async ({body,method,hostname}: Request, res: Response) => {
     try {
         const isAValidURL = verifiyValidURL(body.url)
 
@@ -11,6 +11,8 @@ const getVideoDetails = async ({body}: Request, res: Response) => {
             res.send({data:"INVALID_URL"});
             return;
         }
+
+        console.log(`${method} <-> ${hostname}`);
 
         let response =  await proccessResponse(body.url);
         res.status(200);

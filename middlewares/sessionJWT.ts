@@ -6,7 +6,7 @@ import { verifyToken } from "../utils/jwt.handler";
 const checkingJWT = (req:Request,  res:Response , next:NextFunction) => {
     try {
         const userJwt = req.headers.authorization || null;
-        console.log(`Token del usuario: ${userJwt}`);
+        //console.log(`Token del usuario: ${userJwt}`);
 
         const jwt = userJwt?.split(" ").pop();
 
